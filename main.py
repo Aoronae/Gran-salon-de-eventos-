@@ -50,6 +50,8 @@ async def main(page: ft.Page):
         page.update()
 
     # PERFIL USUARIO 
+    # Se planeo usar un login pero no se implemento porque no ayudan 
+    
     def cargar_vista_usuario():
         lista_eventos = ft.GridView(expand=True, max_extent=380, spacing=20, run_spacing=20)
 
