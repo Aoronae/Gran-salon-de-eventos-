@@ -1,3 +1,14 @@
+# Compatibilidad FastAPI con versiones web de Flet en servidores nube
+try:
+    import fastapi
+    _orig_fastapi_init = fastapi.FastAPI.__init__
+    def _patched_fastapi_init(self, *args, **kwargs):
+        kwargs.pop("openapi_prefix", None)
+        return _orig_fastapi_init(self, *args, **kwargs)
+    fastapi.FastAPI.__init__ = _patched_fastapi_init
+except Exception:
+    pass
+
 import asyncio
 import datetime
 import flet as ft
